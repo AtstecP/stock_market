@@ -1,0 +1,32 @@
+{% extends 'main/mainpage.html' %}
+{% block orders %}
+ 
+</table>
+
+
+
+        <div class="order-book">
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key in data.asks %}
+                            <tr class="buy-order">
+                                <td>{{ key.0 }}</td>
+                                <td>{{ key.1 }}</td>
+                            </tr>
+                    {% endfor %}
+                    {% for key in data.bids %}
+                            <tr class="sell-order">
+                                <td>{{ key.0 }}</td>
+                                <td>{{ key.1 }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
